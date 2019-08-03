@@ -1,8 +1,10 @@
 import Intervalo_Confiança
 import Coeficiente_Correlação
+import Reamostragem
 
 TypeMetodo = int(input("[1] = Intervalo de confiança\n"
                        "[2] = Coeficiente de Correlação\n"
+                       "[3] = Reamostragem\n"
                        "=> "))
 
 if TypeMetodo == 1:
@@ -59,6 +61,26 @@ if TypeMetodo == 2:
         p = Coeficiente_Correlação.Correlacao_Kendall(Vx, Vy, quant_dados)
 
     print("Nivel Correlacao => ", p)
+
+if TypeMetodo == 3:
+    Reamostrage = int(input("[1] = Bootstrap\n"
+                            "[2] = Jackknife\n"
+                            "=> "))
+    n = int(input("Quant de dados => "))
+    v = [None] * n
+
+    for i in range(n):
+        v[i] = float(input("Insira o valor => "))
+
+
+    if Reamostrage == 1:
+        rep = int(input("Quant de repeticoes => "))
+        b = Reamostragem.bootstrap(v, rep, n)
+        print("Estimativa normal e com Bootstrap => ", b)
+
+    if Reamostrage == 2:
+        j = Reamostragem.jackknife(v, n)
+        print("Estimativa normal e com Jackkife => ", j)
 
 
 
