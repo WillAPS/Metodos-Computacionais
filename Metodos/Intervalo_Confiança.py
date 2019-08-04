@@ -2,9 +2,9 @@ from math import sqrt
 from statistics import mean
 
 
-def MediaConhecida(vet, TAmostra, desvio, NivelConfianca):
-    IC = mean(vet) + (TNormal(NivelConfianca) * (desvio / sqrt(TAmostra)))
-    IC_N = mean(vet) - (TNormal(NivelConfianca) * (desvio / sqrt(TAmostra)))
+def MediaConhecida(media, TAmostra, desvio, NivelConfianca):
+    IC = media + (TNormal(NivelConfianca) * (desvio / sqrt(TAmostra)))
+    IC_N = media - (TNormal(NivelConfianca) * (desvio / sqrt(TAmostra)))
     return IC, IC_N
 
 
@@ -16,9 +16,9 @@ def MediaPopulacional(TAmostra, NivelConfianca, TAmostraDeSucesso):
     return IC, IC_N
 
 
-def Amostra(vet, TAmostra, desvio, NivelConfianca):
-    IC = mean(vet) + (TStudent(NivelConfianca, TAmostra) * (desvio / sqrt(TAmostra)))
-    IC_N = mean(vet) - (TStudent(NivelConfianca, TAmostra) * (desvio / sqrt(TAmostra)))
+def Amostra(media, TAmostra, desvio, NivelConfianca):
+    IC = media + (TStudent(NivelConfianca, TAmostra) * (desvio / sqrt(TAmostra)))
+    IC_N = media - (TStudent(NivelConfianca, TAmostra) * (desvio / sqrt(TAmostra)))
     return IC, IC_N
 
 

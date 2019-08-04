@@ -25,7 +25,7 @@ def Correlacao_Kendall(Vx, Vy, n):
             else:
                 concordancia += 1
 
-    t = (discordancia - concordancia) / ((n**2 - n) / 2)
+    t = (concordancia - discordancia) / ((n**2 - n) / 2)
 
     return t
 
@@ -36,4 +36,4 @@ def Correlacao_Spearman(Vx, Vy, n):
     for i in range(n):
         Numerador += Vx[i] - Vy[i]
 
-    return 1 - (Numerador / (n ** 3 - n))
+    return 1 - (6*Numerador / (n ** 3 - n))

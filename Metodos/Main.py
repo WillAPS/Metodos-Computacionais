@@ -1,10 +1,12 @@
 import Intervalo_Confiança
 import Coeficiente_Correlação
 import Reamostragem
+import Interpolacao
 
 TypeMetodo = int(input("[1] = Intervalo de confiança\n"
                        "[2] = Coeficiente de Correlação\n"
                        "[3] = Reamostragem\n"
+                       "[4] = Interpolação\n"
                        "=> "))
 
 if TypeMetodo == 1:
@@ -17,23 +19,17 @@ if TypeMetodo == 1:
     nivel_confianca = float(input("Nivel de Confiança => "))
     quant_dados = int(input("Quant Valores => "))
 
-    if Metodo == 1:
+    if (Metodo == 1) or (Metodo == 3):
+        media = float(input("Insira a media -> "))
         desvio_padrao = float(input("Desvio padrao => "))
-        dados = [None] * quant_dados
-        for i in range(quant_dados):
-            dados[i] = float(input("Valores => "))
-        IC = Intervalo_Confiança.MediaConhecida(dados, quant_dados, desvio_padrao, nivel_confianca)
-
-    elif Metodo == 2:
-        sucesso_dados = int(input("Amostra de Sucesso => "))
-        IC = Intervalo_Confiança.MediaPopulacional(quant_dados, nivel_confianca, sucesso_dados)
+        if Metodo == 1:
+            IC = Intervalo_Confiança.MediaConhecida(media, quant_dados, desvio_padrao, nivel_confianca)
+        else:
+            IC = Intervalo_Confiança.Amostra(media, quant_dados, desvio_padrao, nivel_confianca)
 
     elif Metodo == 3:
-        desvio_padrao = float(input("Desvio padrao => "))
-        dados = [None] * quant_dados
-        for i in range(quant_dados):
-            dados[i] = float(input("Valores => "))
-        IC = Intervalo_Confiança.Amostra(dados, quant_dados, desvio_padrao, nivel_confianca)
+        sucesso_dados = int(input("Amostra de Sucesso => "))
+        IC = Intervalo_Confiança.MediaPopulacional(quant_dados, nivel_confianca, sucesso_dados)
 
     print("Intervalo de Confiança => ", IC)
 
@@ -81,6 +77,9 @@ if TypeMetodo == 3:
     if Reamostrage == 2:
         j = Reamostragem.jackknife(v, n)
         print("Estimativa normal e com Jackkife => ", j)
+
+if TypeMetodo == 4:
+
 
 
 
