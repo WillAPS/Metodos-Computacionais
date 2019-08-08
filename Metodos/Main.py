@@ -1,10 +1,12 @@
 import Intervalo_Confiança
 import Coeficiente_Correlação
 import Reamostragem
+import ZeroFuncao
 
 TypeMetodo = int(input("[1] = Intervalo de confiança\n"
                        "[2] = Coeficiente de Correlação\n"
                        "[3] = Reamostragem\n"
+                       "[4] = ZeroFuncao\n"
                        "=> "))
 
 if TypeMetodo == 1:
@@ -72,7 +74,6 @@ if TypeMetodo == 3:
     for i in range(n):
         v[i] = float(input("Insira o valor => "))
 
-
     if Reamostrage == 1:
         rep = int(input("Quant de repeticoes => "))
         b = Reamostragem.bootstrap(v, rep, n)
@@ -82,5 +83,11 @@ if TypeMetodo == 3:
         j = Reamostragem.jackknife(v, n)
         print("Estimativa normal e com Jackkife => ", j)
 
+if TypeMetodo == 4:
+
+    a = float(input("Chute a => "))
+    b = float(input("Chute b => "))
+    x = ZeroFuncao.Bissec(a, b)
+    print(x)
 
 
