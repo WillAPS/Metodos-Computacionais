@@ -22,5 +22,5 @@ def jackknife(v, n):
     for i in range(n):
         aux[i] = (sum(v) - v[i]) / n
 
-
     return mean(v), mean(aux)
+

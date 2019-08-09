@@ -1,7 +1,8 @@
 import Intervalo_Confiança
 import Coeficiente_Correlação
 import Reamostragem
-import Interpolacao
+import Interpolação
+
 
 TypeMetodo = int(input("[1] = Intervalo de confiança\n"
                        "[2] = Coeficiente de Correlação\n"
@@ -68,7 +69,6 @@ if TypeMetodo == 3:
     for i in range(n):
         v[i] = float(input("Insira o valor => "))
 
-
     if Reamostrage == 1:
         rep = int(input("Quant de repeticoes => "))
         b = Reamostragem.bootstrap(v, rep, n)
@@ -80,6 +80,9 @@ if TypeMetodo == 3:
 
 if TypeMetodo == 4:
 
+    vx = [1, 2, 3]
+    x = Interpolação.CalcDen(vx)
+    print(x)
 
 
 
