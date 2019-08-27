@@ -5,10 +5,10 @@ from statistics import mean
 def MediaConhecida(media, TAmostra, desvio, NivelConfianca):
     IC = media + (TNormal(NivelConfianca) * (desvio / sqrt(TAmostra)))
     IC_N = media - (TNormal(NivelConfianca) * (desvio / sqrt(TAmostra)))
-    return str(IC), str(IC_N)
+    return (IC), (IC_N)
 
 
-def MediaPopulacional(TAmostra, NivelConfianca, TAmostraDeSucesso):
+def MediaPopulacional(TAmostra, TAmostraDeSucesso, NivelConfianca):
     p = TAmostraDeSucesso / TAmostra
     IC = p + TNormal(NivelConfianca) * sqrt((p * (1 - p)) / TAmostra)
     IC_N = p - TNormal(NivelConfianca) * sqrt((p * (1 - p)) / TAmostra)
@@ -16,7 +16,7 @@ def MediaPopulacional(TAmostra, NivelConfianca, TAmostraDeSucesso):
     return IC, IC_N
 
 
-def Amostra(media, TAmostra, desvio, NivelConfianca):
+def mediaAmostral(media, TAmostra, desvio, NivelConfianca):
     IC = media + (TStudent(NivelConfianca, TAmostra) * (desvio / sqrt(TAmostra)))
     IC_N = media - (TStudent(NivelConfianca, TAmostra) * (desvio / sqrt(TAmostra)))
     return IC, IC_N

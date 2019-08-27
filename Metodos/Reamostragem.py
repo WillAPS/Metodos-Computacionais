@@ -1,9 +1,11 @@
 from random import randint
 from statistics import mean
+from Coeficiente_Correlação import Tranform
+
 
 
 def bootstrap(v, rep, n):
-
+    v = Tranform(v, n)
     aux = [0]*rep
     s = 0
     for i in range(rep):
@@ -17,7 +19,7 @@ def bootstrap(v, rep, n):
 
 
 def jackknife(v, n):
-
+    v = Tranform(v, n)
     aux = [0] * n
     for i in range(n):
         aux[i] = (sum(v) - v[i]) / n

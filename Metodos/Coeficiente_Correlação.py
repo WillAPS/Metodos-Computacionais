@@ -2,20 +2,31 @@ from math import sqrt
 from statistics import mean
 
 
+def Tranform(string, n):
+    vet = [None]*n
+    string = string.split(",")
+    for i in range(n):
+        vet[i] = float(string[i])
+    return vet
+
+
 def Correlacao_Pearson(Vx, Vy, n):
+    vx = Tranform(Vx, n)
+    vy = Tranform(Vy, n)
     Numerador = 0
     DenominadorX = DenominadorY = 0
 
     for i in range(n):
-        Numerador += ((Vx[i] - mean(Vx)) * (Vy[i] - mean(Vy)))
-        DenominadorX += ((Vx[i] - mean(Vx)) ** 2)
-        DenominadorY += ((Vy[i] - mean(Vy)) ** 2)
+        Numerador += ((vx[i] - mean(vx)) * (vy[i] - mean(vy)))
+        DenominadorX += ((vx[i] - mean(vx)) ** 2)
+        DenominadorY += ((vy[i] - mean(vy)) ** 2)
 
     return round(Numerador/sqrt((DenominadorX * DenominadorY)), 3)
 
 
 def Correlacao_Kendall(Vx, Vy, n):
-
+    Vx = Tranform(Vx, n)
+    Vy = Tranform(Vy, n)
     discordancia = 0
     concordancia = 0
     for i in range(n):
@@ -31,6 +42,8 @@ def Correlacao_Kendall(Vx, Vy, n):
 
 
 def Correlacao_Spearman(Vx, Vy, n):
+    Vx = Tranform(Vx, n)
+    Vy = Tranform(Vy, n)
     Vx.sort()
     Numerador = 0
     for i in range(n):
