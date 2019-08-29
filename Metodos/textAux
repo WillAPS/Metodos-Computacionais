@@ -1,0 +1,62 @@
+mediaConhecida
+
+{
+    "media": "5",
+    "tamanhoAmostra": "5",
+    "desvioPadrao": "5",
+    "nivelConfianca": "5"
+}
+
+mediaPopulacional
+
+{
+    "tamanhoAmostra": "5",
+    "tamanhoAmostra_Sucesso": "4",
+    "nivelConfianca": "90"
+}
+
+mediaAmostral
+
+{
+    "media": "5",
+    "tamanhoAmostra": "5",
+    "desvioPadrao": "5",
+    "nivelConfianca": "5"
+}
+
+correlacaoPearson
+{
+    "n": "5",
+    "Vx": "1,2,3,4,5",
+    "Vy": "1,2,3,4,5"
+}
+
+correlacaoKendall
+{
+    "n": "5",
+    "Vx": "1,2,3,4,5",
+    "Vy": "1,2,3,4,5"
+}
+
+correlacaoPearson
+{
+    "n": "5",
+    "Vx": "1,2,3,4,5",
+    "Vy": "1,2,3,4,5"
+}
+
+
+bootstrap
+{
+    "n": "5",
+    "repeticoes": "5",
+    "v": "1,2,3,4,5"
+}
+
+jackknife
+{
+    "n": "5",
+    "v": "1,2,3,4,5"
+}
+
+
