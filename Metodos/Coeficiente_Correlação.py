@@ -2,6 +2,19 @@ from math import sqrt
 from statistics import mean
 
 
+def bubble_sort(lista, lista2):
+    elementos = len(lista)-1
+    ordenado = False
+    while not ordenado:
+        ordenado = True
+        for i in range(elementos):
+          if lista[i] > lista[i+1]:
+               lista[i], lista[i+1] = lista[i+1],lista[i]
+               lista2[i], lista2[i + 1] = lista2[i + 1], lista2[i]
+               ordenado = False
+    return lista
+
+
 def Tranform(string, n):
     vet = [None]*n
     string = string.split(",")
@@ -44,8 +57,8 @@ def Correlacao_Kendall(Vx, Vy, n):
 def Correlacao_Spearman(Vx, Vy, n):
     Vx = Tranform(Vx, n)
     Vy = Tranform(Vy, n)
-    Vx.sort()
     Numerador = 0
+    bubble_sort(Vx, Vy)
     for i in range(n):
         Numerador += Vx[i] - Vy[i]
 

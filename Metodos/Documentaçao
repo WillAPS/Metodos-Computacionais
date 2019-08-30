@@ -1,0 +1,126 @@
+
+
+ROTAS E ENTRADAS(EXEMPLOS) PARA OS METODOS DESCRITOS
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Metodo => Intervalo de Confiança para Desvia Padrao Conhecido
+
+route => http://localhost:5000/desvioConhecido
+
+Input Esperado
+{
+    "media": "5",
+    "tamanhoAmostra": "5",
+    "desvioPadrao": "5",
+    "nivelConfianca": "5"
+}
+
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Metodo => Intervalo de Confiança para Proporção Populacional
+
+route => http://localhost:5000/mediaPopulacional
+
+
+Input Esperado
+{
+    "tamanhoAmostra": "5",
+    "tamanhoAmostra_Sucesso": "4",
+    "nivelConfianca": "90"
+}
+
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Metodo => Intervalo de Confiança para Desvia Padrao Desconhecido
+
+route => http://localhost:5000/desvioDesconhecido
+
+Input Esperado
+{
+    "media": "5",
+    "tamanhoAmostra": "5",
+    "desvioPadrao": "5",
+    "nivelConfianca": "5"
+}
+
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Metodo => Correlacao de Pearson
+
+route => http://localhost:5000/correlacaoPearson
+
+Input Esperado
+{
+    "n": "5",
+    "Vx": "1,2,3,4,5",
+    "Vy": "1,2,3,4,5"
+}
+
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Metodo => Correlacao de Kendall
+
+route => http://localhost:5000/correlacaoKendall
+
+Input Esperado
+{
+    "n": "5",
+    "Vx": "1,2,3,4,5",
+    "Vy": "1,2,3,4,5"
+}
+
+
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Metodo => Correlacao de Spearman
+
+route => http://localhost:5000/correlacaoSpearman
+
+Input Esperado
+{
+    "n": "5",
+    "Vx": "1,2,3,4,5",
+    "Vy": "1,2,3,4,5"
+}
+
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Metodo => Reamostragem bootstrap
+
+route => http://localhost:5000/bootstrap
+
+Input Esperado
+{
+    "n": "5",
+    "repeticoes": "5",
+    "v": "1,2,3,4,5"
+}
+
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Metodo => Reamostragem jackknife
+
+route => http://localhost:5000/jackknife
+
+Input Esperado
+
+{
+    "n": "5",
+    "v": "1,2,3,4,5"
+}
+
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Metodo => Regressao Linear
+
+route => http://localhost:5000/linear
+
+Input Esperado
+{
+    "n": "3",
+    "v": "1,2,3",
+    "v2": "2,3,4"
+}
+
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

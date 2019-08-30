@@ -2,7 +2,7 @@ from math import sqrt
 from statistics import mean
 
 
-def MediaConhecida(media, TAmostra, desvio, NivelConfianca):
+def desvioConhecido(media, TAmostra, desvio, NivelConfianca):
     IC = media + (TNormal(NivelConfianca) * (desvio / sqrt(TAmostra)))
     IC_N = media - (TNormal(NivelConfianca) * (desvio / sqrt(TAmostra)))
     return (IC), (IC_N)
@@ -16,7 +16,7 @@ def MediaPopulacional(TAmostra, TAmostraDeSucesso, NivelConfianca):
     return IC, IC_N
 
 
-def mediaAmostral(media, TAmostra, desvio, NivelConfianca):
+def desvioDesconhecido(media, TAmostra, desvio, NivelConfianca):
     IC = media + (TStudent(NivelConfianca, TAmostra) * (desvio / sqrt(TAmostra)))
     IC_N = media - (TStudent(NivelConfianca, TAmostra) * (desvio / sqrt(TAmostra)))
     return IC, IC_N
@@ -69,7 +69,6 @@ def TNormal(nivel):
     for i in range(400):
         if table[i] > nivel:
             Result -= 0.01
-
     return Result
 
 

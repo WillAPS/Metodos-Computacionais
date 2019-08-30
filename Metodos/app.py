@@ -2,18 +2,19 @@ from flask import Flask, request
 import Intervalo_Confiança
 import Coeficiente_Correlação
 import Reamostragem
+import Regressoes
 
 
 app = Flask(__name__)
 
 
-@app.route('/mediaConhecida', methods=['POST'])
+@app.route('/desvioConhecido', methods=['POST'])
 def json_mediaConhecida():
 	media = request.json['media']
 	tamanhoAmostra = request.json['tamanhoAmostra']
 	desvioPadrao = request.json['desvioPadrao']
 	nivelConfianca = request.json['nivelConfianca']
-	result = Intervalo_Confiança.MediaConhecida(float(media), int(tamanhoAmostra), float(desvioPadrao), float(nivelConfianca))
+	result = Intervalo_Confiança.desvioConhecido(float(media), int(tamanhoAmostra), float(desvioPadrao), float(nivelConfianca))
 	return str(result)
 
 
@@ -26,13 +27,13 @@ def json_mediaPopulacional():
 	return str(result)
 
 
-@app.route('/mediaAmostral', methods=['POST'])
+@app.route('/desvioDesconhecido', methods=['POST'])
 def json_mediaAmostral():
 	media = request.json['media']
 	tamanhoAmostra = request.json['tamanhoAmostra']
 	desvioPadrao = request.json['desvioPadrao']
 	nivelConfianca = request.json['nivelConfianca']
-	result = Intervalo_Confiança.mediaAmostral(float(media), int(tamanhoAmostra), float(desvioPadrao), float(nivelConfianca))
+	result = Intervalo_Confiança.desvioDesconhecido(float(media), int(tamanhoAmostra), float(desvioPadrao), float(nivelConfianca))
 	return str(result)
 
 
@@ -78,6 +79,15 @@ def json_jackknife():
 	v = request.json['v']
 	result = Reamostragem.jackknife(v, int(n))
 	return str(result)
+
+
+@app.route('/linear', methods=['POST'])
+def json_linear():
+	n = request.json['n']
+	v = request.json['v']
+	v2 = request.json['v2']
+	result = Regressoes.linear(v, v2, int(n))
+	return  str(result)
 
 
 if __name__ == '__main__':
